@@ -4,19 +4,13 @@ package NewsCluster;
 
 service NewsService {
 
-  rpc CreateNews (CreateNewsRequest) returns (Result) {}
-  rpc AddDocument (AddDocumentRequest) returns (Result) {}
-  rpc GetDocumentById (GetDocumentByIdRequest) returns (Document) {}
+  rpc CreateNews (CreateNewsRequest) returns (Empty) {}
+  rpc AddDocument (AddDocumentRequest) returns (Empty) {}
+  rpc GetDocumentById (GetDocumentByIdRequest) returns (Empty) {}
 
 }
 
-message Result {
-  enum ResultType {
-    Success = 0;
-    Failure = 1;
-  }
-  ResultType type = 1;
-  string message = 2;
+message Empty {
 }
 
 message Document {
