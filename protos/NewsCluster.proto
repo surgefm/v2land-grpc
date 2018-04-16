@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package NewsCluster;
+
+service NewsService {
+
+  rpc CreateNews (CreateNewsRequest) returns (Result) {}
+  rpc AddDocument (AddDocumentRequest) returns (Result) {}
+  rpc GetDocumentById (GetDocumentByIdRequest) returns (Document) {}
+
+}
+
+message Result {
+  enum ResultType {
+    Success = 0;
+    Failure = 1;
+  }
+  ResultType type = 1;
+  string message = 2;
+}
+
+message Document {
+  int64 id = 1;
+  string title = 2;
+  string url = 3;
+  string content = 4;
+  int64 news_id = 5;
+}
+
+message CreateNewsRequest {
+  int64 id = 1;
+}
+
+message AddDocumentRequest {
+  int64 id = 1;
+  string url = 2;
+}
+
+message GetDocumentByIdRequest {
+  int64 id = 1;
+}
