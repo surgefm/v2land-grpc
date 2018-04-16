@@ -32,6 +32,7 @@ message CreateNewsRequest {
 message AddDocumentRequest {
   int64 id = 1;
   string url = 2;
+  int64 news_id = 3;
 }
 
 message GetDocumentByIdRequest {
