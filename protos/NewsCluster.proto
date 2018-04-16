@@ -4,13 +4,17 @@ package NewsCluster;
 
 service NewsService {
 
-  rpc CreateNews (CreateNewsRequest) returns (Empty) {}
-  rpc AddDocument (AddDocumentRequest) returns (Empty) {}
-  rpc GetDocumentById (GetDocumentByIdRequest) returns (Empty) {}
+  rpc CreateNewsIfNotExists (CreateNewsRequest) returns (CreateResult) {}
+  rpc AddDocumentIfNotExists (AddDocumentRequest) returns (CreateResult) {}
+  rpc GetDocumentById (GetDocumentByIdRequest) returns (Document) {}
 
 }
 
 message Empty {
+}
+
+message CreateResult {
+  bool created = 1;
 }
 
 message Document {
