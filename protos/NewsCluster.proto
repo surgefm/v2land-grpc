@@ -4,10 +4,20 @@ package NewsCluster;
 
 service NewsService {
 
+  rpc PingPong (Ping) returns (Pong) {}
   rpc CreateNewsIfNotExists (CreateNewsRequest) returns (CreateResult) {}
   rpc AddDocumentIfNotExists (AddDocumentRequest) returns (CreateResult) {}
   rpc GetDocumentById (GetDocumentByIdRequest) returns (Document) {}
 
+}
+
+message Ping {
+  string message = 1;
+}
+
+message Pong {
+  string message = 1;
+  string setverTime = 2;
 }
 
 message Empty {
@@ -21,8 +31,8 @@ message Document {
   int64 id = 1;
   string title = 2;
   string url = 3;
-  string mercury_data = 4;
-  int64 news_id = 5;
+  string mercuryData = 4;
+  int64 newsId = 5;
 }
 
 message CreateNewsRequest {
