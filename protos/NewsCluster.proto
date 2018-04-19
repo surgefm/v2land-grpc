@@ -17,7 +17,7 @@ message Ping {
 
 message Pong {
   string message = 1;
-  string setverTime = 2;
+  string serverTime = 2;
 }
 
 message Empty {
